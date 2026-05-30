@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Generated Receipts
+backend/receipts/
+
+# Uploaded Images (optional)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Package Locks (optional)
+# package-lock.json

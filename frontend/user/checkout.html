@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Cafe BE</title>
+
+  <link rel="stylesheet" href="../css/style-menu.css">
+  <link rel="stylesheet" href="../css/style-checkout.css">
+
+  <script defer src="../js/checkout.js"></script>
+  <script defer src="../js/user-auth.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="../img/logo.png" alt="Cafe Logo">
+        <h2>CAFE BE</h2>
+        <p>Original Taste<br>Est. 2023</p>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="menu.html">Menu</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html" class="active">Checkout</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- API Calls -->
+      
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="checkout-main">
+  <h1 class="checkout-title">Checkout</h1>
+  <p class="checkout-subtitle">Complete your order details</p>
+
+  <div class="checkout-grid">
+
+    <!-- LEFT SIDE -->
+    <div class="checkout-left">
+
+      <div class="checkout-box">
+        <h2>Customer Information</h2>
+
+        <div class="form-grid">
+      <input type="text" id="full-name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      </div>
+
+      </div>
+
+      <div class="checkout-box">
+        <h2>Payment Method</h2>
+
+        <div class="payment-methods">
+          <label><input type="radio" name="payment" checked> Cash on Delivery</label>
+          <label><input type="radio" name="payment"> UPI</label>
+          <label><input type="radio" name="payment"> Card</label>
+        </div>
+
+       <button id="place-order-btn" class="place-order-btn">
+       Place Order
+       </button>
+    </div>
+    </div>
+    <!-- RIGHT SIDE -->
+    <div class="checkout-box order-summary">
+  <h2>Order Summary</h2>
+  <div id="order-items"></div>
+  <hr>
+ <p><strong>Total Items:</strong> <span id="summary-items">0</span></p>
+  <p class="grand-total">
+    <strong>Grand Total:</strong> ₹<span id="summary-total">0</span>
+  </p>
+</div>
+</div>
+</main>
+</body>
+</html>

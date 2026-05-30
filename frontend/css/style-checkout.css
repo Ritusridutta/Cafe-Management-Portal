@@ -1,0 +1,126 @@
+/* ================= MAIN OFFSET FIX ================= */
+.checkout-main {
+  margin-left: 250px;          /* ✅ pushes content away from sidebar */
+  padding: 40px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* ================= TITLE ================= */
+.checkout-title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 5px;
+}
+
+.checkout-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+/* ================= GRID ================= */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;   /* left medium, right fixed */
+  gap: 35px;
+  align-items: flex-start;
+}
+
+/* ================= LEFT SIDE ================= */
+.checkout-left {
+  max-width: 760px;   /* ✅ prevents oversized boxes */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ================= BOX ================= */
+.checkout-box {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* ================= FORM ================= */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 15px;
+}
+
+.form-grid input,
+.form-grid textarea {
+  padding: 11px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.form-grid textarea {
+  grid-column: span 2;
+  height: 90px;
+  resize: none;
+}
+
+/* ================= PAYMENT ================= */
+.payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 15px 0 20px;
+}
+
+.payment-methods label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.payment-methods input {
+  accent-color: #f39c12;
+}
+
+/* ================= BUTTON ================= */
+.place-order-btn {
+  width: 100%;
+  padding: 14px;
+  background: #f39c12;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+/* ================= RIGHT SIDE ================= */
+.checkout-right {
+  max-width: 360px;
+  position: sticky;
+  top: 40px;
+}
+
+/* ===== LOGIN BUTTON (FIX) ===== */
+.login-btn {
+  display: block;
+  width: 100%;
+
+  background: #f39c12;
+  color: white;
+
+  padding: 12px;
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #e67e22;
+}

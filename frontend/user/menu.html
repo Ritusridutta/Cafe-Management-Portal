@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Cafe Management</title>
+
+  <link rel="stylesheet" href="../css/style-menu.css">
+
+  <script defer src="../js/menu.js"></script>
+  <script defer src="../js/cart.js"></script>
+  <script defer src="../js/user-auth.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="../img/logo.png">
+        <h2>CAFE BE</h2>
+        <p>Original Taste<br>Est. 2023</p>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </aside>
+
+    <main class="main-content menu">
+      <header class="menu-header">
+        <h1>Our Menu</h1>
+        <p>Fresh coffee, tasty snacks & delightful desserts</p>
+
+        <a href="/user/cart.html" class="cart-icon">
+          🛒 <span id="cart-count">0</span>
+        </a>
+      </header>
+
+      <div id="menu-container"></div>
+    </main>
+
+  </div>
+</body>
+</html>

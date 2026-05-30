@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Menu</title>
+
+  <link rel="stylesheet" href="../css/manage-menu.css">
+
+  <script defer src="../js/manage-menu.js"></script>
+  <script defer src="../js/admin-auth.js"></script>
+</head>
+
+<body>
+
+<div class="active-container">
+
+  <!-- SIDEBAR -->
+  <aside class="active-sidebar">
+    <h2>☕ Cafe BE</h2>
+    <p class="panel-title">Admin Panel</p>
+
+    <nav>
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="manage-menu.html" class="active">Manage Menu</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="#" id="logout-btn">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="active-main">
+
+    <h1>Manage Menu</h1>
+
+    <!-- ADD ITEM -->
+    <div class="order-card">
+      <h3>Add New Item</h3>
+
+      <input id="name" placeholder="Name">
+      <input id="price" placeholder="Price">
+
+      <!-- 🔥 DROPDOWN -->
+      <select id="category"></select>
+
+      <input type="file" id="image" accept="image/*">
+
+      <img id="preview" style="display:none; width:100px; margin-top:10px; border-radius:8px;">
+
+      <button onclick="addItem()">Add Item</button>
+      <p id="add-msg" class="msg"></p>
+    </div>
+
+    <!-- MENU LIST -->
+    <div id="menu-list"></div>
+
+  </main>
+
+</div>
+
+<!-- 🔥 EDIT MODAL -->
+<div id="edit-modal" class="modal">
+  <div class="modal-content">
+
+    <span class="close-btn" id="close-modal">&times;</span>
+
+    <h2>Edit Item</h2>
+
+    <input id="edit-name" placeholder="Name">
+    <input id="edit-price" placeholder="Price">
+
+    <!-- 🔥 DROPDOWN -->
+    <select id="edit-category"></select>
+
+    <img id="edit-preview" style="width:100px; margin:10px auto; display:block; border-radius:10px;">
+
+    <input type="file" id="edit-image" accept="image/*">
+
+    <button id="save-edit">Update Item</button>
+
+    <p id="edit-msg" class="msg"></p>
+
+  </div>
+</div>
+
+</body>
+</html>

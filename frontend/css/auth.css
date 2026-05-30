@@ -1,0 +1,217 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f5f6fa;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #1a1a2e;
+  color: white;
+  padding: 20px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.logo h2 {
+  color: white;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: #f39c12;
+}
+
+/* ================= MAIN ================= */
+.auth-main {
+  margin-left: 250px;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= BOX ================= */
+.auth-box {
+  background: white;
+  padding: 35px;
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  text-align: center;
+}
+
+.auth-box h1 {
+  margin-bottom: 10px;
+}
+
+.auth-box p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON */
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+
+  background: #f39c12;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.auth-box button:hover {
+  background: #e67e22;
+}
+
+.auth-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+/* SWITCH TEXT */
+.switch {
+  margin-top: 15px;
+}
+
+.switch a {
+  color: #f39c12;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ERROR */
+#error-msg {
+  color: red;
+  margin-top: 10px;
+}
+
+/* ================= SIDEBAR AUTH ================= */
+.bottom-auth {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  display: block;
+  background: #f39c12;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #e67e22;
+}
+
+/* USER NAME */
+.user-name {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+/* LOGOUT BUTTON */
+#logout-btn {
+  background: #e74c3c;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#logout-btn:hover {
+  background: #c0392b;
+}
+
+/* ===== PASSWORD TOGGLE ===== */
+
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+
+  top: 50%;
+  right: 15px;
+
+  transform: translateY(-50%);
+
+  cursor: pointer;
+
+  color: #777;
+}
+
+.toggle-password:hover {
+  color: #000;
+}

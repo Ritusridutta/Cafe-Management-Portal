@@ -1,0 +1,116 @@
+/* reuse everything from my-orders.css */
+
+@import url("my-orders.css");
+
+/* ACCOUNT CARD */
+.account-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.account-card p {
+  margin: 8px 0;
+}
+
+/* EDIT BUTTON */
+.edit-btn {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a2e;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #333;
+}
+
+/* MODAL INPUTS */
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-box button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  background: #f39c12;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+/* DISABLED INPUT STYLE */
+.modal-box input:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* 🚫 RED NO SYMBOL */
+.modal-box input:disabled:hover {
+  cursor: not-allowed;
+}
+
+.modal-box input:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* ================= MESSAGE ================= */
+.msg {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.msg.success {
+  color: #27ae60;
+}
+
+.msg.error {
+  color: #e74c3c;
+}
+
+/* ===== PASSWORD TOGGLE ===== */
+
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box input {
+  width: 100%;
+}
+
+.toggle-password {
+
+  position: absolute;
+
+  top: 50%;
+  right: 15px;
+
+  transform: translateY(-50%);
+
+  cursor: pointer;
+
+  color: #777;
+
+  font-size: 1rem;
+}
+
+.toggle-password:hover {
+  color: #000;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Orders - Cafe BE</title>
+  <link rel="stylesheet" href="../css/my-orders.css">
+
+  <script defer src="../js/user-auth.js"></script>
+  <script defer src="../js/my-orders.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="../img/logo.png">
+      <h2>CAFE BE</h2>
+      <p>Original Taste<br>Est. 2023</p>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="menu.html">Menu</a>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="orders-main">
+
+    <h1>📦 My Orders</h1>
+    <p class="subtitle">Track your recent orders</p>
+
+    <div id="orders-container" class="orders-container">
+      <!-- Orders will load here -->
+    </div>
+
+  </main>
+
+</div>
+<div id="order-modal" class="modal"></div>
+</body>
+</html>

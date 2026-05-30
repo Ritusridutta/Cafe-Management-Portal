@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Dashboard - Cafe BE</title>
+
+  <link rel="stylesheet" href="../css/kitchen-dashboard.css">
+
+  <script defer src="../js/kitchen-dashboard.js"></script>
+  <script defer src="../js/cook-auth.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <aside class="sidebar">
+
+    <h2>☕ Cafe BE</h2>
+
+    <p class="panel-title">Kitchen Panel</p>
+
+    <nav>
+      <a href="kitchen-dashboard.html" class="active">Dashboard</a>
+      <a href="kitchen-current-orders.html">Current Orders</a>
+      <a href="kitchen-orders.html">Past Orders</a>
+      <a href="#" id="logout-btn">Logout</a>
+    </nav>
+
+  </aside>
+
+  <main class="dashboard-main">
+
+    <h1>Kitchen Overview</h1>
+
+    <!-- OVERVIEW -->
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <h3>Awaiting Preparation</h3>
+        <p id="awaiting-count">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Preparing</h3>
+        <p id="preparing-count">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Ready Orders</h3>
+        <p id="ready-count">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Completed Orders</h3>
+        <p id="completed-count">0</p>
+      </div>
+
+    </div>
+
+    <!-- DATE ANALYTICS -->
+
+    <div class="analytics-section">
+
+      <h2>Date Analytics</h2>
+
+      <div class="filter-box">
+
+        <input type="date" id="analytics-date">
+
+        <button id="load-analytics-btn">
+          View Analytics
+        </button>
+
+      </div>
+
+      <div class="analytics-grid">
+
+        <div class="stat-card">
+          <h3>Total Orders</h3>
+          <p id="date-orders">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Accepted Orders</h3>
+          <p id="date-accepted">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Ready Orders</h3>
+          <p id="date-ready">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Completed Orders</h3>
+          <p id="date-completed">0</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>

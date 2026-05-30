@@ -1,0 +1,168 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR (MATCH MENU PAGE) ================= */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #1a1a2e;
+  color: white;
+  padding: 20px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #f39c12;
+}
+
+/* ADDRESS (LEFT ALIGNED LIKE MENU) */
+.address {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ================= MAIN ================= */
+.main-content.about {
+  margin-left: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 40px;
+  background: #fff;
+}
+
+/* CONTENT */
+.about-wrapper {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* IMAGE */
+.about-image {
+  flex: 1.5;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 15px;
+}
+
+/* TEXT */
+.text {
+  flex: 1.5;
+}
+
+.text h1 {
+  font-size: 2.5rem;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+  border-left: 6px solid #f39c12;
+  padding-left: 10px;
+}
+
+.text p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* ===== AUTH SECTION ===== */
+.bottom-auth {
+  margin-top: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+/* USER NAME */
+.user-name {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* LOGOUT BUTTON */
+#logout-btn {
+  width: 100%;
+  padding: 10px;
+
+  background: #e74c3c;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+#logout-btn:hover {
+  background: #c0392b;
+}
+
+/* ===== LOGIN BUTTON (FIX) ===== */
+.login-btn {
+  display: block;
+  width: 100%;
+
+  background: #f39c12;
+  color: white;
+
+  padding: 12px;
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #e67e22;
+}

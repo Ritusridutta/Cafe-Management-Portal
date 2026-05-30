@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kitchen Orders</title>
+
+  <link rel="stylesheet" href="../css/kitchen-orders.css">
+
+  <script defer src="../js/cook-auth.js"></script>
+  <script defer src="../js/kitchen-orders.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <!-- ✅ SIDEBAR -->
+  <aside class="sidebar">
+    <h2>☕ Cafe BE</h2>
+    <p class="panel-title">Kitchen Panel</p>
+
+    <nav>
+      <a href="kitchen-dashboard.html">Dashboard</a>
+      <a href="kitchen-current-orders.html">Current Orders</a>
+      <a href="kitchen-orders.html" class="active">Past Orders</a>
+      <a href="#" id="logout-btn">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- ✅ MAIN -->
+  <main class="dashboard-main">
+    <h1>Kitchen Orders</h1>
+
+    <!-- Orders list -->
+    <div id="orders-container"></div>
+  </main>
+
+</div>
+
+<script>
+document.getElementById("logout-btn").onclick = () => {
+  sessionStorage.removeItem("cookLoggedIn");
+  window.location.href = "cook-login.html";
+};
+</script>
+
+</body>
+</html>

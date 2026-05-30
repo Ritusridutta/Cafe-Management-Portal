@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback - Cafe BE</title>
+  <link rel="stylesheet" href="../css/feedback.css">
+  <script defer src="../js/feedback.js"></script>
+</head>
+
+<body>
+
+  <div class="feedback-page">
+    <div class="feedback-box">
+
+      <h1>💬 We Value Your Feedback</h1>
+      <p>Tell us about your experience at <strong>Cafe BE</strong></p>
+
+      <form id="feedback-form">
+
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="email" id="email" placeholder="Your Email" required>
+
+  <p><strong>How was your experience?</strong></p>
+
+  <div class="rating">
+    <label>
+      <input type="radio" name="rating" value="5" required>
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+    </label>
+
+    <label>
+      <input type="radio" name="rating" value="4">
+      <span class="stars">⭐⭐⭐⭐</span>
+    </label>
+
+    <label>
+      <input type="radio" name="rating" value="3">
+      <span class="stars">⭐⭐⭐</span>
+    </label>
+
+    <label>
+      <input type="radio" name="rating" value="2">
+      <span class="stars">⭐⭐</span>
+    </label>
+
+    <label>
+      <input type="radio" name="rating" value="1">
+      <span class="stars">⭐</span>
+    </label>
+  </div>
+
+  <textarea id="message" placeholder="Write your feedback..." required></textarea>
+
+  <button type="submit">Submit Feedback</button>
+
+  </form>
+
+  <p id="success-msg" class="success-msg">
+  ✅ Thank you for your feedback!
+  </p>
+
+
+  <a href="/user/index.html" class="back-home">← Back to Home</a>
+
+  </div>
+  </div>
+
+</body>
+
+</html>

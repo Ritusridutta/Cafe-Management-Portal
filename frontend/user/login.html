@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Login - Cafe BE</title>
+
+  <link rel="stylesheet" href="../css/auth.css">
+
+  <!-- 🔥 FONT AWESOME -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Sidebar Auth Script -->
+  <script defer src="../js/user-auth.js"></script>
+  <script defer src="../js/login.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="logo">
+
+      <img src="../img/logo.png">
+
+      <h2>CAFE BE</h2>
+
+      <p>
+        Original Taste<br>
+        Est. 2023
+      </p>
+
+    </div>
+
+    <nav class="nav">
+
+      <a href="/user/index.html">Home</a>
+      <a href="/user/about.html">About Us</a>
+      <a href="/user/gallery.html">Gallery</a>
+      <a href="/user/menu.html">Menu</a>
+      <a href="/user/cart.html">Cart</a>
+      <a href="/user/contact.html">Contact</a>
+
+    </nav>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="auth-main">
+
+    <div class="auth-box">
+
+      <h1>Welcome Back 👋</h1>
+
+      <p>Login to continue</p>
+
+      <form id="login-form">
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Email Address"
+          required
+        >
+
+        <!-- 🔥 PASSWORD -->
+        <div class="password-box">
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          >
+
+          <i class="fa-solid fa-eye toggle-password"
+             data-target="password"></i>
+
+        </div>
+
+        <button type="submit">
+          Login
+        </button>
+
+      </form>
+
+      <p class="switch">
+
+        Don't have an account?
+
+        <a href="/user/register.html">
+          Register
+        </a>
+
+      </p>
+
+      <p id="error-msg"></p>
+
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>

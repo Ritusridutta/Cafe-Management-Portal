@@ -1,0 +1,213 @@
+/* Import dashboard styling */
+@import url("kitchen-dashboard.css");
+
+/* ================= MAIN ================= */
+
+.dashboard-main {
+  flex: 1;
+  padding: 40px;
+}
+
+.dashboard-main h1 {
+  font-size: 3rem;
+  margin-bottom: 35px;
+}
+
+/* ================= GRID ================= */
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* ================= ORDER CARD ================= */
+
+.order-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+}
+
+.order-card h3 {
+  margin-bottom: 10px;
+}
+
+.order-card p {
+  color: #000;
+  font-size: 0.9rem;
+}
+
+/* ================= STATUS ================= */
+
+.status {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.status.ready {
+  background: #e8daef;
+  color: #8e44ad;
+}
+
+.status.completed {
+  background: #d5f5e3;
+  color: #27ae60;
+}
+
+/* ================= BUTTON ================= */
+
+.details-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1a1a2e, #2c2c54);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 0.5px;
+}
+
+.details-btn:hover {
+  background: linear-gradient(135deg, #f39c12, #f1c40f);
+  transform: translateY(-2px);
+}
+
+/* ================= MODAL ================= */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 35px;
+  width: 900px;
+  border-radius: 14px;
+  position: relative;
+}
+
+.modal-box h2 {
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+
+/* ================= TABLE ================= */
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.items-table th {
+  background: #1a1a2e;
+  color: white;
+}
+
+.items-table th,
+.items-table td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.modal-total {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: right;
+  font-size: 1.1rem;
+}
+
+/* ================= DATE HEADER ================= */
+
+.date-header {
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 25px 0 15px;
+  color: #000;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.date-header::before,
+.date-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background: #ddd;
+}
+
+.date-header::before {
+  left: 0;
+}
+
+.date-header::after {
+  right: 0;
+}
+
+.date-group {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+  .orders-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .orders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+}

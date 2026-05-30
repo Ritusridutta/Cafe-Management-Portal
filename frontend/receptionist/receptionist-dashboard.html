@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receptionist Dashboard - Cafe BE</title>
+
+  <link rel="stylesheet" href="../css/receptionist-dashboard.css">
+
+  <script defer src="../js/receptionist-dashboard.js"></script>
+  <script defer src="../js/receptionist-auth.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+  <aside class="sidebar">
+
+    <h2>☕ Cafe BE</h2>
+
+    <p class="panel-title">Reception Panel</p>
+
+    <nav>
+      <a href="receptionist-dashboard.html" class="active">Dashboard</a>
+      <a href="active-orders.html">Active Orders</a>
+      <a href="past-orders.html">Past Orders</a>
+      <a href="#" id="logout-btn">Logout</a>
+    </nav>
+
+  </aside>
+
+  <main class="dashboard-main">
+
+    <h1>Reception Overview</h1>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <h3>Active Orders</h3>
+        <p id="active-count">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Completed Orders</h3>
+        <p id="completed-count">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Total Revenue</h3>
+        <p>₹<span id="total-revenue">0</span></p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Awaiting Acceptance</h3>
+        <p id="awaiting-count">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Ready To Complete</h3>
+        <p id="ready-count">0</p>
+      </div>
+
+    </div>
+
+    <div class="analytics-section">
+
+      <h2>Date Analytics</h2>
+
+      <div class="filter-box">
+
+        <input type="date" id="analytics-date">
+
+        <button id="load-analytics-btn">
+          View Analytics
+        </button>
+
+      </div>
+
+      <div class="analytics-grid">
+
+        <div class="stat-card">
+          <h3>Orders Received</h3>
+          <p id="date-orders">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Completed Orders</h3>
+          <p id="date-completed">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Revenue</h3>
+          <p>₹<span id="date-revenue">0</span></p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Pending Orders</h3>
+          <p id="date-pending">0</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>

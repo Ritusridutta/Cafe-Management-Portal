@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Cafe BE</title>
+
+  <link rel="stylesheet" href="../css/style-menu.css">
+  <script defer src="../js/cart-page.js"></script>
+  <script defer src="../js/user-auth.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+  <div class="logo">
+    <img src="../img/logo.png">
+    <h2>CAFE BE</h2>
+    <p>Original Taste<br>Est. 2023</p>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="menu.html">Menu</a>
+    <a href="cart.html" class="active">Cart</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</aside>
+
+    <!-- Main Content -->
+    <main class="main-content menu">
+
+      <header class="menu-header">
+        <h1>Your Cart</h1>
+        <p>Review your items before checkout</p>
+      </header>
+
+      <!-- Empty Cart Message -->
+      <div id="empty-cart" class="empty-cart">
+        <h2>No items in cart</h2>
+        <p>Please go to menu to add items to the cart.</p>
+        <a href="/user/menu.html" class="login-btn">Go to Menu</a>
+      </div>
+
+      <!-- Cart Section -->
+      <section class="cart-section" id="cart-section">
+
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <!-- Filled by JS -->
+          </tbody>
+        </table>
+
+        <div class="cart-summary">
+          <h2>Cart Summary</h2>
+          <p>Total Items: <span id="total-items">0</span></p>
+          <p>Grand Total: ₹<span id="grand-total">0</span></p>
+         <a href="/user/checkout.html" class="checkout-btn">
+         Proceed to Checkout
+         </a>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Confirmed - Cafe BE</title>
+  <link rel="stylesheet" href="../css/style-order-success.css">
+  <script defer src="../js/order-success.js"></script>
+</head>
+
+<body>
+  <div class="success-container">
+
+    <div class="success-box">
+      <h1>🎉 Order Confirmed!</h1>
+      <p class="success-msg">
+        Thank you for ordering with <strong>Cafe BE</strong>.
+      </p>
+
+      <p class="order-id">
+        Order ID: <span id="order-id"></span>
+      </p>
+
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div id="order-items"></div>
+
+        <hr>
+
+        <p><strong>Total Items:</strong> <span id="total-items">0</span></p>
+        <p class="grand-total">
+          <strong>Grand Total:</strong> ₹<span id="grand-total">0</span>
+        </p>
+      </div>
+
+      <div class="success-actions">
+        <a href="/user/index.html" class="btn">Go to Home</a>
+        <a href="/user/menu.html" class="btn outline">Order More</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
