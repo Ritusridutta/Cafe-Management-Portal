@@ -59,14 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <button
               class="accept-btn"
               ${acceptDisabled ? "disabled" : ""}
-              onclick="updateStatus(${order.id}, 'accepted')">
+              onclick="updateStatus(${order_order.id}, 'accepted')">
               Accept
             </button>
 
             <button
               class="complete-btn"
               ${completeDisabled ? "disabled" : ""}
-              onclick="updateStatus(${order.id}, 'completed')">
+              onclick="updateStatus(${order_order.id}, 'completed')">
               Complete
             </button>
 
