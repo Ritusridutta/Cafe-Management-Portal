@@ -1,34 +1,29 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const path = require("path");
 
-console.log("EMAIL_USER =", process.env.EMAIL_USER);
-console.log("EMAIL_PASS exists =", !!process.env.EMAIL_PASS);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("SMTP Error:", error);
-  } else {
-    console.log("SMTP Ready");
-  }
-});
+console.log(
+  "RESEND_API_KEY exists =",
+  !!process.env.RESEND_API_KEY
+);
 
 // ================= PDF GENERATION =================
 function generatePDF(order) {
   return new Promise((resolve) => {
 
-    const filePath = path.join(__dirname, `../receipts/${order.order_id}.pdf`);
+    const receiptsDir = path.join(__dirname, "../receipts");
+
+    if (!fs.existsSync(receiptsDir)) {
+      fs.mkdirSync(receiptsDir, { recursive: true });
+    }
+
+    const filePath = path.join(
+      receiptsDir,
+      `${order.order_id}.pdf`
+    );
 
     const doc = new PDFDocument({
       margin: 0,
@@ -36,9 +31,11 @@ function generatePDF(order) {
     });
 
     const stream = fs.createWriteStream(filePath);
+
     doc.pipe(stream);
 
     // ================= MAIN CARD =================
+
     doc
       .roundedRect(40, 40, 515, 700, 10)
       .strokeColor("#dddddd")
@@ -46,6 +43,7 @@ function generatePDF(order) {
       .stroke();
 
     // ================= HEADER =================
+
     doc
       .roundedRect(40, 40, 515, 90, 10)
       .fill("#1a1a2e");
@@ -68,6 +66,7 @@ function generatePDF(order) {
       });
 
     // ================= BODY =================
+
     let y = 170;
 
     doc
@@ -93,6 +92,7 @@ function generatePDF(order) {
     y += 45;
 
     // ================= TABLE HEADER =================
+
     doc
       .rect(70, y, 455, 35)
       .fill("#f3f3f3");
@@ -110,9 +110,12 @@ function generatePDF(order) {
     y += 50;
 
     // ================= ITEMS =================
-    doc.font("Helvetica").fontSize(12);
 
-    order.items.forEach(item => {
+    doc
+      .font("Helvetica")
+      .fontSize(12);
+
+    order.items.forEach((item) => {
 
       const total = item.price * item.qty;
 
@@ -125,6 +128,7 @@ function generatePDF(order) {
     });
 
     // ================= TOTAL =================
+
     y += 20;
 
     doc
@@ -138,11 +142,16 @@ function generatePDF(order) {
     y += 60;
 
     // ================= FOOTER =================
+
     doc
       .font("Helvetica")
       .fontSize(13)
       .fillColor("#333")
-      .text("Thank you for ordering with us ☕", 70, y);
+      .text(
+        "Thank you for ordering with us ☕",
+        70,
+        y
+      );
 
     doc.end();
 
@@ -151,72 +160,135 @@ function generatePDF(order) {
 }
 
 // ================= EMAIL =================
+
 const sendOrderEmail = async (to, order) => {
 
-  const pdfPath = await generatePDF(order);
+  try {
 
-  const itemsHtml = order.items.map(item => `
-    <tr>
-      <td>${item.name}</td>
-      <td>${item.category || "-"}</td>
-      <td>${item.qty}</td>
-      <td>₹${item.price * item.qty}</td>
-    </tr>
-  `).join("");
+    const pdfPath = await generatePDF(order);
 
-  const html = `
-<div style="font-family: Arial, sans-serif; max-width:600px; margin:auto; border:1px solid #e5e5e5; border-radius:10px; overflow:hidden;">
+    const pdfBuffer = fs.readFileSync(pdfPath);
 
-  <div style="background:#1a1a2e; color:white; padding:18px; text-align:center;">
-    <h2 style="margin:0;">Cafe BE</h2>
-    <p style="margin:5px 0 0;">Order Confirmation</p>
-  </div>
+    const html = `
+    <div style="font-family: Arial, sans-serif; max-width:600px; margin:auto; border:1px solid #e5e5e5; border-radius:10px; overflow:hidden;">
 
-  <div style="padding:20px;">
-    <p><strong>Order ID:</strong> ${order.order_id}</p>
-    <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+      <div style="background:#1a1a2e; color:white; padding:18px; text-align:center;">
+        <h2 style="margin:0;">Cafe BE</h2>
+        <p style="margin:5px 0 0;">Order Confirmation</p>
+      </div>
 
-    <table style="width:100%; border-collapse: collapse; margin-top:15px;">
-      <thead>
-        <tr style="background:#f5f5f5;">
-          <th style="padding:10px; text-align:left;">Item</th>
-          <th style="padding:10px; text-align:left;">Category</th>
-          <th style="padding:10px; text-align:center;">Qty</th>
-          <th style="padding:10px; text-align:right;">Price</th>
-        </tr>
-      </thead>
+      <div style="padding:20px;">
 
-      <tbody>
-        ${order.items.map(item => `
-          <tr>
-            <td style="padding:10px;">${item.name}</td>
-            <td style="padding:10px;">${item.category}</td>
-            <td style="padding:10px; text-align:center;">${item.qty}</td>
-            <td style="padding:10px; text-align:right;">₹${item.price * item.qty}</td>
-          </tr>
-        `).join("")}
-      </tbody>
-    </table>
+        <p>
+          <strong>Order ID:</strong>
+          ${order.order_id}
+        </p>
 
-    <h3 style="text-align:right; margin-top:15px;">Total: ₹${order.total}</h3>
+        <p>
+          <strong>Date:</strong>
+          ${new Date().toLocaleString()}
+        </p>
 
-    <p style="margin-top:20px;">Thank you for ordering with us ☕</p>
-  </div>
-</div>
-`;
+        <table
+          style="
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+          "
+        >
 
-  await transporter.sendMail({
-    from: `"Cafe BE" <${process.env.EMAIL_USER}>`,
-    to,
-    subject: "Your Order Receipt",
-    html,
-    attachments: [
-      {
-        filename: `Receipt-${order.order_id}.pdf`,
-        path: pdfPath
-      }
-    ]
-  });
+          <thead>
+
+            <tr style="background:#f5f5f5;">
+
+              <th style="padding:10px;text-align:left;">
+                Item
+              </th>
+
+              <th style="padding:10px;text-align:left;">
+                Category
+              </th>
+
+              <th style="padding:10px;text-align:center;">
+                Qty
+              </th>
+
+              <th style="padding:10px;text-align:right;">
+                Price
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            ${order.items.map(item => `
+              <tr>
+                <td style="padding:10px;">
+                  ${item.name}
+                </td>
+
+                <td style="padding:10px;">
+                  ${item.category || "-"}
+                </td>
+
+                <td style="padding:10px;text-align:center;">
+                  ${item.qty}
+                </td>
+
+                <td style="padding:10px;text-align:right;">
+                  ₹${item.price * item.qty}
+                </td>
+              </tr>
+            `).join("")}
+
+          </tbody>
+
+        </table>
+
+        <h3
+          style="
+            text-align:right;
+            margin-top:15px;
+          "
+        >
+          Total: ₹${order.total}
+        </h3>
+
+        <p style="margin-top:20px;">
+          Thank you for ordering with us ☕
+        </p>
+
+      </div>
+
+    </div>
+    `;
+
+    const response = await resend.emails.send({
+
+      from: "Cafe BE <onboarding@resend.dev>",
+
+      to: [to],
+
+      subject: "Your Order Receipt",
+
+      html,
+
+      attachments: [
+        {
+          filename: `Receipt-${order.order_id}.pdf`,
+          content: pdfBuffer.toString("base64")
+        }
+      ]
+    });
+
+    console.log("Email sent successfully:", response);
+
+  } catch (err) {
+
+    console.error("Email failed:", err);
+  }
 };
 
 module.exports = sendOrderEmail;
