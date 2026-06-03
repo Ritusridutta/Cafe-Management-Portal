@@ -17,9 +17,5 @@ Thumbs.db
 # Generated Receipts
 backend/receipts/
 
-# Uploaded Images (optional)
-backend/uploads/*
-!backend/uploads/.gitkeep
-
 # Package Locks (optional)
 # package-lock.json
