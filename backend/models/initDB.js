@@ -38,7 +38,7 @@ const initDB = () => {
       status ENUM(
         'placed',
         'accepted',
-        'being_prepared',
+        'preparing',
         'ready',
         'completed'
       ) DEFAULT 'placed',
