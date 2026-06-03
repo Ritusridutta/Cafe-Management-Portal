@@ -3,8 +3,11 @@ const PDFDocument = require("pdfkit");
 const fs = require("fs");
 const path = require("path");
 
+console.log("EMAIL_USER =", process.env.EMAIL_USER);
+console.log("EMAIL_PASS exists =", !!process.env.EMAIL_PASS);
+
 const transporter = nodemailer.createTransport({
-  service: "smtp.gmail.com",
+  host: "smtp.gmail.com",
   port: 465,
   secure: true,
   auth: {
