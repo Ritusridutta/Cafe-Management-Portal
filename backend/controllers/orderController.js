@@ -111,15 +111,32 @@ exports.getPastOrders = (req, res) => {
 
 // ================= UPDATE =================
 exports.updateOrderStatus = (req, res) => {
+
   const { status } = req.body;
   const { id } = req.params;
 
   db.query(
-    "UPDATE orders SET status=? WHERE id=?",
+    "UPDATE orders SET status = ? WHERE order_id = ?",
     [status, id],
-    (err) => {
-      if (err) return res.status(500).json(err);
-      res.json({ message: "Status updated" });
+    (err, result) => {
+
+      if (err) {
+
+        console.error(err);
+
+        return res.status(500).json(err);
+      }
+
+      if (result.affectedRows === 0) {
+
+        return res.status(404).json({
+          message: "Order not found"
+        });
+      }
+
+      res.json({
+        message: "Status updated successfully"
+      });
     }
   );
 };

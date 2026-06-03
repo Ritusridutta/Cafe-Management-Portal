@@ -62,14 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <button
               class="preparing-btn"
               ${preparingDisabled ? "disabled" : ""}
-              onclick="updateStatus(${order.id}, 'preparing')">
+              onclick="updateStatus('${order.order_id}', 'preparing')">
               Start Preparing
             </button>
 
             <button
               class="ready-btn"
               ${readyDisabled ? "disabled" : ""}
-              onclick="updateStatus(${order.id}, 'ready')">
+              onclick="updateStatus('${order.order_id}', 'ready')">
               Mark Ready
             </button>
 
