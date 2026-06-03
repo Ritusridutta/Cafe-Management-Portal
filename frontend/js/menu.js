@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ================= FETCH MENU =================
   async function fetchMenu() {
     try {
-      const res = await fetch("http://localhost:5000/api/menu");
+      const res = await fetch("/api/menu");
       const data = await res.json();
 
       renderMenu(data);
