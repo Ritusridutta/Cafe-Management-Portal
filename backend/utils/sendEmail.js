@@ -193,7 +193,7 @@ const sendOrderEmail = async (to, order) => {
 `;
 
   await transporter.sendMail({
-    from: '"Cafe BE" <process.env.EMAIL_USER>',
+    from: `"Cafe BE" <${process.env.EMAIL_USER}>`,
     to,
     subject: "Your Order Receipt",
     html,
