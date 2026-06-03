@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
 
-      await fetch(`/api/orders/${id}/status`, {
+      await fetch(`/api/orders/${order.order_id}/status`, {
 
         method: "PUT",
 
