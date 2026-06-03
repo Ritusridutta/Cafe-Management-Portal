@@ -4,10 +4,20 @@ const fs = require("fs");
 const path = require("path");
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  service: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
+  }
+});
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("SMTP Error:", error);
+  } else {
+    console.log("SMTP Ready");
   }
 });
 
