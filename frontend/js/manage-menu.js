@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("edit-category").value = category;
 
     // 🔥 SHOW CURRENT IMAGE
-    editPreview.src = "http://localhost:5000" + image;
+    editPreview.src = image;
 
     modal.style.display = "flex";
   };
