@@ -12,7 +12,7 @@ exports.getMenu = (req, res) => {
 exports.addItem = (req, res) => {
   const { name, price, category } = req.body;
 
-  const image = req.file ? req.file.path : null;
+  const image = req.file?.path || req.file?.secure_url || null;
 
   console.log("REQ FILE:", req.file);
   console.log("IMAGE URL:", image);
@@ -42,14 +42,20 @@ exports.updateItem = (req, res) => {
       "SELECT image FROM menu_items WHERE id=?",
       [id],
       (err, result) => {
-        if (err) return res.status(500).json(err);
+        if (err) {
+          console.error("DB ERROR:", err);
+          return res.status(500).json(err);
+        }
 
         // 🔥 Update with new image
         db.query(
           "UPDATE menu_items SET name=?, price=?, category=?, image=? WHERE id=?",
           [name, price, category, newImage, id],
           (err) => {
-            if (err) return res.status(500).json(err);
+            if (err) {
+              console.error("DB ERROR:", err);
+              return res.status(500).json(err);
+            }
             res.json({ message: "Updated with new image" });
           }
         );
