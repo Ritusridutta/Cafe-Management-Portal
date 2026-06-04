@@ -15,13 +15,23 @@ async function loadOrders() {
     container.innerHTML = "";
 
     data.forEach(order => {
-      const date = new Date(order.created_at).toLocaleString();
+      const d = new Date(order.created_at);
+
+const date =
+  d.toLocaleDateString("en-GB") +
+  " " +
+  d.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  });
 
       container.innerHTML += `
         <div class="order-card">
           <div class="order-header">
             <span>Order #${order.order_id}</span>
-            <span class="status ${getStatusClass(order.status)}">${order.status}</span>
+            <span class="status ${getStatusClass(order.status)}">${order.status.toUpperCase()}</span>
           </div>
 
           <div class="order-meta">
@@ -50,7 +60,7 @@ function getStatusClass(status) {
 }
 
 // ===== MODAL =====
-function openModal(id, orderId, status, date) {
+function openModal(orderId, status, date) {
 
   const modal = document.getElementById("order-modal");
 
@@ -61,8 +71,8 @@ function openModal(id, orderId, status, date) {
       <h2>Order Details</h2>
 
       <p><strong>Order ID:</strong> ${orderId}</p>
-      <p><strong>Status:</strong> ${status}</p>
-      <p><strong>Date:</strong> ${date}</p>
+      <p><strong>Status:</strong> ${status.toUpperCase()}</p>
+      <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-GB")} ${new Date(date).toLocaleTimeString()}</p>
 
       <div id="modal-items">Loading items...</div>
     </div>
@@ -84,7 +94,7 @@ function openModal(id, orderId, status, date) {
     }
   };
 
-  loadOrderItems(id);
+  loadOrderItems(orderId);
 }
 
 // ===== CLOSE =====
