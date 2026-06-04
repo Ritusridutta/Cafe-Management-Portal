@@ -36,18 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
       // ================= RENDER =================
       Object.keys(grouped).forEach(date => {
 
-        // 🔥 GROUP WRAPPER (IMPORTANT FIX)
         const groupWrapper = document.createElement("div");
         groupWrapper.className = "date-group";
 
-        // 🔥 DATE HEADER
         const dateDiv = document.createElement("div");
         dateDiv.className = "date-header";
-        const orderCount = grouped[date].length;
-        
-        dateDiv.textContent = `${formatDate(date)} (${orderCount} ${orderCount === 1 ? "order" : "orders"})`;
 
-        // 🔥 GRID
+        const orderCount = grouped[date].length;
+
+        dateDiv.textContent =
+          `${formatDate(date)} (${orderCount} ${orderCount === 1 ? "order" : "orders"})`;
+
         const grid = document.createElement("div");
         grid.className = "orders-grid";
 
@@ -57,23 +56,32 @@ document.addEventListener("DOMContentLoaded", () => {
           card.className = "order-card";
 
           card.innerHTML = `
-  <h3>Order #${order.order_id}</h3>
+            <h3>Order #${order.order_id}</h3>
 
-  <p><strong>Order Time:</strong> ${new Date(order.created_at).toLocaleTimeString()}</p>
-  <p><strong>Completion Time:</strong> ${order.updated_at ? new Date(order.updated_at).toLocaleTimeString() : "-"}</p>
-  <p><strong>Price:</strong> ₹${order.total}</p>
+            <p><strong>Order Time:</strong> ${new Date(order.created_at).toLocaleTimeString()}</p>
+            <p><strong>Completion Time:</strong> ${
+              order.updated_at
+                ? new Date(order.updated_at).toLocaleTimeString()
+                : "-"
+            }</p>
+            <p><strong>Price:</strong> ₹${order.total}</p>
 
-  <button class="details-btn">View Details</button>
-`;
+            <button class="details-btn">View Details</button>
+          `;
 
-          // ✅ BUTTON CLICK
+          // ✅ PASS STATUS + DATE
           card.querySelector(".details-btn")
-            .addEventListener("click", () => openModal(order.order_id));
+            .addEventListener("click", () =>
+              openModal(
+                order.order_id,
+                order.status,
+                order.created_at
+              )
+            );
 
           grid.appendChild(card);
         });
 
-        // ✅ APPEND PROPER STRUCTURE
         groupWrapper.appendChild(dateDiv);
         groupWrapper.appendChild(grid);
 
@@ -99,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ================= MODAL =================
-  window.openModal = async function(orderId) {
+  window.openModal = async function(orderId, status, date) {
 
     const modal = document.createElement("div");
     modal.className = "modal";
@@ -107,7 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.innerHTML = `
       <div class="modal-box">
         <span class="close-btn">✖</span>
-        <h2>Order #${orderId}</h2>
+
+        <h2>Order Details</h2>
+
+        <p><strong>Order ID:</strong> ${orderId}</p>
+        <p><strong>Status:</strong> ${status.toUpperCase()}</p>
+        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-GB")} ${new Date(date).toLocaleTimeString()}</p>
+
         <div id="modal-items">Loading...</div>
       </div>
     `;
@@ -138,7 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const items = await res.json();
 
       if (!items || items.length === 0) {
-        modal.querySelector("#modal-items").innerHTML = "<p>No items found</p>";
+        modal.querySelector("#modal-items").innerHTML =
+          "<p>No items found</p>";
         return;
       }
 
@@ -168,21 +183,23 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       });
 
-      html += `</table>
+      html += `
+        </table>
         <div class="modal-total">Total ₹${total}</div>
       `;
 
       modal.querySelector("#modal-items").innerHTML = html;
 
     } catch (err) {
-      modal.querySelector("#modal-items").innerHTML = "<p>Error loading items</p>";
+      modal.querySelector("#modal-items").innerHTML =
+        "<p>Error loading items</p>";
     }
   };
 
   // ================= CLOSE MODAL =================
   function closeModal(modal) {
     if (modal) modal.remove();
-    document.onkeydown = null; // cleanup ESC listener
+    document.onkeydown = null;
   }
 
   // ================= INIT =================

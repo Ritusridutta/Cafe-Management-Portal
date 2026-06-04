@@ -139,8 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <h2>Order Details</h2>
 
         <p><strong>Order ID:</strong> ${orderId}</p>
-        <p><strong>Status:</strong> ${status}</p>
-        <p><strong>Date:</strong> ${new Date(date).toLocaleString()}</p>
+        <p><strong>Status:</strong> ${status.toUpperCase()}</p>
+        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-GB")} ${new Date(date).toLocaleTimeString()}</p>
 
         <div id="modal-items">
           Loading...
