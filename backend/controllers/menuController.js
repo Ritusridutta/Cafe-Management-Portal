@@ -14,6 +14,9 @@ exports.addItem = (req, res) => {
 
   const image = req.file ? req.file.path : null;
 
+  console.log("REQ FILE:", req.file);
+  console.log("IMAGE URL:", image);
+
   db.query(
     "INSERT INTO menu_items (name, price, category, image) VALUES (?, ?, ?, ?)",
     [name, price, category, image],
