@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>Order ID: ${order.order_id}</h3>
 
           <p class="status ${order.status}">
-            ${order.status.replace("_", " ")}
+            ${order.status.replace("_", " ").toUpperCase()}
           </p>
 
           <p>

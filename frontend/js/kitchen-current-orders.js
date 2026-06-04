@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>Order ID: ${order.order_id}</h3>
 
           <p class="status ${order.status}">
-            ${order.status}
+            ${order.status.toUpperCase()}
           </p>
 
           <p>
