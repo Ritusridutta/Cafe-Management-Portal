@@ -1,6 +1,4 @@
 const db = require("../config/db");
-const fs = require("fs");
-const path = require("path");
 
 // ================= GET MENU =================
 exports.getMenu = (req, res) => {
@@ -14,7 +12,7 @@ exports.getMenu = (req, res) => {
 exports.addItem = (req, res) => {
   const { name, price, category } = req.body;
 
-  const image = req.file ? `/uploads/${req.file.filename}` : null;
+  const image = req.file ? req.file.path : null;
 
   db.query(
     "INSERT INTO menu_items (name, price, category, image) VALUES (?, ?, ?, ?)",
@@ -34,7 +32,7 @@ exports.updateItem = (req, res) => {
   // 🔥 If new image uploaded
   if (req.file) {
 
-    const newImage = `/uploads/${req.file.filename}`;
+    const newImage = req.file.path;
 
     // 🔥 First get old image
     db.query(
@@ -42,16 +40,6 @@ exports.updateItem = (req, res) => {
       [id],
       (err, result) => {
         if (err) return res.status(500).json(err);
-
-        const oldImage = result[0]?.image;
-
-        // 🔥 Delete old image file
-        if (oldImage) {
-          const filePath = path.join(__dirname, "..", oldImage);
-          fs.unlink(filePath, (err) => {
-            if (err) console.log("Old image delete error:", err);
-          });
-        }
 
         // 🔥 Update with new image
         db.query(
@@ -88,15 +76,6 @@ exports.deleteItem = (req, res) => {
     [id],
     (err, result) => {
       if (err) return res.status(500).json(err);
-
-      const image = result[0]?.image;
-
-      if (image) {
-        const filePath = path.join(__dirname, "..", image);
-        fs.unlink(filePath, (err) => {
-          if (err) console.log("Delete image error:", err);
-        });
-      }
 
       // 🔥 Delete DB record
       db.query("DELETE FROM menu_items WHERE id=?", [id], (err) => {

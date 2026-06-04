@@ -35,9 +35,6 @@ db.connect((err) => {
   }
 });
 
-// ================= STATIC FILES =================
-app.use("/uploads", express.static("uploads"));
-
 // ================= API ROUTES =================
 app.use("/api/orders", orderRoutes);
 app.use("/api/menu", menuRoutes);
