@@ -56,7 +56,7 @@ A full-stack Cafe Management System built using Node.js, Express, MySQL, HTML, C
 ### Email Service
 
 * Nodemailer
-* Gmail App Password
+* Resend
 
 ### PDF Generation
 
@@ -67,7 +67,7 @@ A full-stack Cafe Management System built using Node.js, Express, MySQL, HTML, C
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Ritusridutta/Cafe-Management-Portal.git
 ```
 
 Install dependencies:
@@ -86,8 +86,11 @@ DB_USER=
 DB_PASSWORD=
 DB_NAME=
 
-EMAIL_USER=
-EMAIL_PASS=
+RESEND_API_KEY=
+
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
 ```
 
 Start the server:
@@ -104,7 +107,7 @@ http://localhost:5000
 
 ## Order Workflow
 
-Placed
+→ Placed
 → Accepted
 → Preparing
 → Ready
@@ -133,4 +136,4 @@ frontend/
 
 ## Author
 
-Ritushri Dutta
+Ritusri Dutta
