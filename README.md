@@ -99,11 +99,23 @@ Start the server:
 node server.js
 ```
 
-Open:
+## Live Demo
 
-```text
-http://localhost:5000
-```
+### Customer Portal
+
+https://cafe-management-portal.onrender.com/
+
+### Reception Portal
+
+https://cafe-management-portal.onrender.com/receptionist/receptionist-login.html
+
+### Kitchen Portal
+
+https://cafe-management-portal.onrender.com/kitchen/cook-login.html
+
+### Admin Portal
+
+https://cafe-management-portal.onrender.com/admin/admin-login.html
 
 ## Order Workflow
 
