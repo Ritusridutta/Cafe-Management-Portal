@@ -15,12 +15,19 @@ async function loadOrders() {
     container.innerHTML = "";
 
     data.forEach(order => {
+
+      console.log("RAW DB DATE:", order.created_at);
+      console.log("PARSED DATE:", new Date(order.created_at));
+
       const d = new Date(order.created_at);
 
 const date =
-  d.toLocaleDateString("en-GB") +
+  d.toLocaleDateString("en-GB", {
+    timeZone: "Asia/Kolkata"
+  }) +
   " " +
-  d.toLocaleTimeString([], {
+  d.toLocaleTimeString("en-IN", {
+    timeZone: "Asia/Kolkata",
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
@@ -72,7 +79,7 @@ function openModal(orderId, status, date) {
 
       <p><strong>Order ID:</strong> ${orderId}</p>
       <p><strong>Status:</strong> ${status.toUpperCase()}</p>
-      <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-GB")} ${new Date(date).toLocaleTimeString()}</p>
+      <p><strong>Date:</strong> ${date}</p>
 
       <div id="modal-items">Loading items...</div>
     </div>

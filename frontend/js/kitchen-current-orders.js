@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <p>
             <strong>Time:</strong>
-            ${new Date(order.created_at).toLocaleString()}
+            ${new Date(order.created_at).toLocaleString("en-IN", {timeZone: "Asia/Kolkata"})}
           </p>
 
           <div class="btn-group">
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <p><strong>Order ID:</strong> ${orderId}</p>
         <p><strong>Status:</strong> ${status.toUpperCase()}</p>
-        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-GB")} ${new Date(date).toLocaleTimeString()}</p>
+        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-IN", {timeZone = "Asia/Kolkata"})}</p>
 
         <div id="modal-items">
           Loading...
