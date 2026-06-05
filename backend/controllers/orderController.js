@@ -82,6 +82,8 @@ exports.getUserOrders = (req, res) => {
     (err, results) => {
       if (err) return res.status(500).json(err);
       console.log("ORDERS:", results);
+      console.log("RAW RESULTS:", results);
+      console.log("SERVER NOW:", new Date());
       res.json(results);
     }
   );
