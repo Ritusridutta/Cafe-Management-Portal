@@ -78,6 +78,7 @@ exports.getUserOrders = (req, res) => {
     [email],
     (err, results) => {
       if (err) return res.status(500).json(err);
+      console.log("ORDERS:", results);
       res.json(results);
     }
   );
