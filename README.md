@@ -117,6 +117,28 @@ https://cafe-management-portal.onrender.com/kitchen/cook-login.html
 
 https://cafe-management-portal.onrender.com/admin/admin-login.html
 
+## Demo Credentials
+
+### Admin Portal
+
+**Email:** [admin@cafebe.com](mailto:admin@cafebe.com)
+
+**Password:** admin123
+
+### Reception Portal
+
+**Email:** [reception@cafebe.com](mailto:reception@cafebe.com)
+
+**Password:** 12345
+
+### Kitchen Portal
+
+**Email:** [cook@cafebe.com](mailto:cook@cafebe.com)
+
+**Password:** 12345
+
+> These credentials are provided for demonstration purposes only.
+
 ## Order Workflow
 
 → Placed
