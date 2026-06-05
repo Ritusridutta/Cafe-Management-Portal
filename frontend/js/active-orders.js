@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <p><strong>Order ID:</strong> ${orderId}</p>
         <p><strong>Status:</strong> ${status.toUpperCase()}</p>
-        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-IN", {timeZone: "Asia/Kolkata"})}</p>
+        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString("en-IN", {timeZone: "Asia/Kolkata"})} ${new Date(date).toLocaleTimeString("en-IN", {timeZone: "Asia/Kolkata"})}</p>
 
         <div id="modal-items">
           Loading...
