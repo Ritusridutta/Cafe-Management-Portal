@@ -9,7 +9,7 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 
-  timezone: "+05:30"
+  timezone: "Z"
 });
 
 db.connect((err) => {
