@@ -15,6 +15,9 @@ exports.createOrder = (req, res) => {
 
   const orderId = generateOrderId();
 
+  console.log("SERVER TIME:", new Date());
+  console.log("SERVER ISO:", new Date().toISOString());
+
   db.query(
     "INSERT INTO orders (order_id, user_email, total, status) VALUES (?, ?, ?, ?)",
     [orderId, user_email, total, "placed"],
