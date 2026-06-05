@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = emailInput.value.trim();
     const phone = phoneInput.value.trim();
 
-    // ✅ VALIDATION (UPDATED)
     if (!name || !email || !phone) {
       alert("❗ Please fill all the required fields");
       return;

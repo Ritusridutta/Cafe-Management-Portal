@@ -87,14 +87,12 @@ function openModal(orderId, status, date) {
 
   modal.style.display = "flex";
 
-  // ✅ OUTSIDE CLICK
   modal.onclick = (e) => {
     if (e.target.id === "order-modal") {
       closeModal();
     }
   };
 
-  // ✅ ESC KEY
   document.onkeydown = (e) => {
     if (e.key === "Escape") {
       closeModal();

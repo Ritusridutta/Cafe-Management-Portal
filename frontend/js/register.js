@@ -77,7 +77,6 @@ document.getElementById("register-form")
         return;
       }
 
-      // ✅ SAVE USER
       sessionStorage.setItem(
         "user",
         JSON.stringify(data.user)

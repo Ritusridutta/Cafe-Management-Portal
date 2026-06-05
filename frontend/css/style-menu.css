@@ -272,9 +272,9 @@ body {
 
 .cart-summary {
   margin-top: 30px;
-  margin-left: auto;              /* ✅ pushes box to right side */
+  margin-left: auto;
   width: 100%;
-  max-width: 360px;               /* ✅ medium size */
+  max-width: 360px;
   
   padding: 22px;
   background: #ffffff;
@@ -305,13 +305,13 @@ body {
   width: 100%;
   padding: 14px 0;
 
-  background-color: #2ecc71;   /* ✅ green */
+  background-color: #2ecc71;
   color: #ffffff;
 
   font-size: 1.05rem;
   font-weight: bold;
   text-align: center;
-  text-decoration: none;       /* ❌ no underline */
+  text-decoration: none;
 
   border-radius: 10px;
   cursor: pointer;

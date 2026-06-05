@@ -40,7 +40,6 @@ document.getElementById("login-form")
         return;
       }
 
-      // ✅ SAVE USER
       sessionStorage.setItem(
         "user",
         JSON.stringify(data.user)

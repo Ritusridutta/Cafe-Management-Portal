@@ -13,7 +13,6 @@ const {
 // USER
 router.post("/create", createOrder);
 
-// ✅ USE EMAIL
 router.get("/user/:userEmail", getUserOrders);
 
 router.get("/items/:orderId", getOrderItems);

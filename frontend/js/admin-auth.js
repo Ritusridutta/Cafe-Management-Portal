@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ✅ AUTH CHECK
   const isLoggedIn = sessionStorage.getItem("adminLoggedIn");
 
   if (!isLoggedIn) {
@@ -8,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // ✅ LOGOUT HANDLER (WORKS ON ALL PAGES)
   const logoutBtn = document.getElementById("logout-btn");
 
   if (logoutBtn) {

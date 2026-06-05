@@ -32,12 +32,12 @@ exports.updateItem = (req, res) => {
   const { id } = req.params;
   const { name, price, category } = req.body;
 
-  // 🔥 If new image uploaded
+  // If new image uploaded
   if (req.file) {
 
     const newImage = req.file.path;
 
-    // 🔥 First get old image
+    // First get old image
     db.query(
       "SELECT image FROM menu_items WHERE id=?",
       [id],
@@ -47,7 +47,7 @@ exports.updateItem = (req, res) => {
           return res.status(500).json(err);
         }
 
-        // 🔥 Update with new image
+        // Update with new image
         db.query(
           "UPDATE menu_items SET name=?, price=?, category=?, image=? WHERE id=?",
           [name, price, category, newImage, id],
@@ -63,7 +63,7 @@ exports.updateItem = (req, res) => {
     );
 
   } else {
-    // 🔥 No image → update only text
+    // No image → update only text
     db.query(
       "UPDATE menu_items SET name=?, price=?, category=? WHERE id=?",
       [name, price, category, id],
@@ -79,14 +79,14 @@ exports.updateItem = (req, res) => {
 exports.deleteItem = (req, res) => {
   const { id } = req.params;
 
-  // 🔥 Get image first
+  // Get image first
   db.query(
     "SELECT image FROM menu_items WHERE id=?",
     [id],
     (err, result) => {
       if (err) return res.status(500).json(err);
 
-      // 🔥 Delete DB record
+      // Delete DB record
       db.query("DELETE FROM menu_items WHERE id=?", [id], (err) => {
         if (err) return res.status(500).json(err);
         res.json({ message: "Deleted" });

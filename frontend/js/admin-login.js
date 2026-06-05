@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const errorMsg =
     document.getElementById("error-msg");
 
-  // ✅ HARDCODED CREDENTIALS
   const ADMIN_EMAIL = "admin@cafebe.com";
   const ADMIN_PASSWORD = "admin123";
 
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     errorMsg.textContent = "";
 
-    // ✅ VALIDATION
     if (!email || !password) {
 
       errorMsg.textContent =
@@ -31,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ✅ LOGIN CHECK
     if (
       email === ADMIN_EMAIL &&
       password === ADMIN_PASSWORD

@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 🔥 EDIT IMAGE PREVIEW
+  // EDIT IMAGE PREVIEW
   editImageInput.addEventListener("change", (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("edit-price").value = price;
     document.getElementById("edit-category").value = category;
 
-    // 🔥 SHOW CURRENT IMAGE
+    // SHOW CURRENT IMAGE
     editPreview.src = image;
 
     modal.style.display = "flex";

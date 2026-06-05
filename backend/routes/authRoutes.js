@@ -8,11 +8,11 @@ const {
   updateUser
 } = require("../controllers/authController");
 
-// 🔥 ACCOUNT ROUTES
+// ACCOUNT ROUTES
 router.get("/user/:email", getUser);
 router.put("/update", updateUser);
 
-// 🔥 AUTH
+// AUTH
 router.post("/register", register);
 router.post("/login", login);
 

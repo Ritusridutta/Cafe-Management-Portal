@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (user) {
 
-    // 🔥 MY ORDERS
+    // MY ORDERS
     const myOrders = document.createElement("a");
 
     myOrders.href = "/user/my-orders.html";
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     myOrders.classList.add("dynamic-link");
 
-    // 🔥 ACCOUNT
+    // ACCOUNT
     const account = document.createElement("a");
 
     account.href = "/user/account.html";
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     account.classList.add("dynamic-link");
 
-    // 🔥 INSERT AFTER CART
+    // INSERT AFTER CART
     const cartLink = [...nav.children]
       .find(a => a.textContent.includes("Cart"));
 
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       sessionStorage.removeItem("user");
 
-      // 🔥 REDIRECT TO HOME
+      // REDIRECT TO HOME
       window.location.href = "/user/index.html";
     }
   });

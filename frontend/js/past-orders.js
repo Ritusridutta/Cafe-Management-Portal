@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const groupWrapper = document.createElement("div");
         groupWrapper.className = "date-group";
 
-        // 🔥 DATE HEADER WITH COUNT
+        // DATE HEADER WITH COUNT
         const dateDiv = document.createElement("div");
         dateDiv.className = "date-header";
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dateDiv.textContent =
           `${formatDate(date)} (${count} ${count === 1 ? "order" : "orders"})`;
 
-        // 🔥 GRID
+        // GRID
         const grid = document.createElement("div");
         grid.className = "orders-grid";
 

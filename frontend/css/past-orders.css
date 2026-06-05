@@ -198,7 +198,6 @@ body {
   position: relative;
 }
 
-/* 🔥 small line below (premium look) */
 .panel-title::after {
   content: "";
   display: block;

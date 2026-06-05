@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const errorMsg =
     document.getElementById("error-msg");
 
-  // ✅ HARDCODED CREDENTIALS
   const validEmail = "reception@cafebe.com";
   const validPassword = "12345";
 
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     errorMsg.textContent = "";
 
-    // ✅ VALIDATION
     if (!email || !password) {
 
       errorMsg.textContent =

@@ -29,7 +29,7 @@ exports.register = async (req, res) => {
               id: result.insertId,
               name,
               email,
-              phone   // 🔥 ADDED
+              phone
             }
           });
         }
@@ -66,7 +66,7 @@ exports.login = (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
-        phone: user.phone   // 🔥 ADDED
+        phone: user.phone
       }
     });
   });
@@ -97,7 +97,7 @@ exports.updateUser = (req, res) => {
 
     const user = result[0];
 
-    // 🔥 PASSWORD CHANGE
+    // PASSWORD CHANGE
     if (newPassword) {
 
       if (!oldPassword) {
@@ -122,7 +122,7 @@ exports.updateUser = (req, res) => {
       );
 
     } else {
-      // 🔥 WITHOUT PASSWORD
+      // WITHOUT PASSWORD
       db.query(
         "UPDATE users SET name=?, phone=?, city=?, address=? WHERE email=?",
         [name, phone, city, address, email],

@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       container.innerHTML = "";
 
-      // ✅ FILTER + SORT (latest first)
       const filtered = orders
         .filter(o => o.status === "ready" || o.status === "completed")
         .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -69,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="details-btn">View Details</button>
           `;
 
-          // ✅ PASS STATUS + DATE
           card.querySelector(".details-btn")
             .addEventListener("click", () =>
               openModal(
@@ -128,18 +126,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.appendChild(modal);
 
-    // ✅ CLOSE BUTTON
     modal.querySelector(".close-btn")
       .addEventListener("click", () => closeModal(modal));
 
-    // ✅ OUTSIDE CLICK
     modal.addEventListener("click", (e) => {
       if (e.target === modal) {
         closeModal(modal);
       }
     });
 
-    // ✅ ESC KEY
     document.onkeydown = (e) => {
       if (e.key === "Escape") {
         closeModal(modal);
