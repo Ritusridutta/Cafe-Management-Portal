@@ -15,11 +15,6 @@ exports.createOrder = (req, res) => {
 
   const orderId = generateOrderId();
 
-  console.log("SERVER TIME:", new Date());
-  console.log("SERVER ISO:", new Date().toISOString());
-
-  console.log("ORDER CREATED AT:", new Date());
-
   db.query(
     "INSERT INTO orders (order_id, user_email, total, status) VALUES (?, ?, ?, ?)",
     [orderId, user_email, total, "placed"],
@@ -83,9 +78,6 @@ exports.getUserOrders = (req, res) => {
     [email],
     (err, results) => {
       if (err) return res.status(500).json(err);
-      console.log("ORDERS:", results);
-      console.log("RAW RESULTS:", results);
-      console.log("SERVER NOW:", new Date());
       res.json(results);
     }
   );
